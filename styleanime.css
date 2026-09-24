@@ -1,0 +1,253 @@
+/* =========================================================
+   COLOR & TYPE TOKENS
+   Change these once here and the whole site updates.
+   ========================================================= */
+:root {
+  --paper: #eae2d3; /* warm background, like aged paper */
+  --ink: #2b2620; /* main text color, soft black */
+  --ink-soft: #5a5248; /* muted secondary text */
+  --rule: #c9bea9; /* thin divider lines */
+  --rose: #b85c6b; /* accent used in nav/hover */
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Work Sans", "Segoe UI", sans-serif;
+}
+
+/* =========================================================
+     RESET / BASE
+     ========================================================= */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Respect users who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* =========================================================
+     HEADER / NAV
+     ========================================================= */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid var(--rule);
+  position: sticky;
+  top: 0;
+  background-color: var(--paper);
+  z-index: 10;
+}
+
+.site-title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.1rem;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+
+.site-nav a {
+  text-decoration: none;
+  margin-left: 1.75rem;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.site-nav a:hover {
+  color: var(--rose);
+  border-bottom-color: var(--rose);
+}
+
+/* =========================================================
+     HERO
+     ========================================================= */
+.hero {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 6rem 1.5rem 4rem;
+  text-align: left;
+}
+
+.hero-eyebrow {
+  font-size: 0.95rem;
+  color: var(--rose);
+  font-style: italic;
+  font-family: var(--font-display);
+  margin: 0 0 1rem;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  line-height: 1.15;
+  margin: 0 0 1.5rem;
+}
+
+.hero-intro {
+  max-width: 60ch;
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+}
+
+/* =========================================================
+     ENTRIES
+     ========================================================= */
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem;
+}
+
+.entry {
+  display: flex;
+  align-items: stretch;
+  gap: 3rem;
+  padding: 3.5rem 0;
+  border-top: 1px solid var(--rule);
+}
+
+.entry.reverse {
+  flex-direction: row-reverse;
+}
+
+.entry-visual {
+  flex: 0 0 40%;
+}
+
+.mood-art {
+  width: 100%;
+  height: 220px;
+  border-radius: 2px;
+}
+
+/* Cover images (once you add real anime cover art) use this instead of .mood-art */
+.entry-visual img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 2px;
+  border: 1px solid var(--rule);
+}
+
+.entry-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.entry-number {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--rose);
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+.entry-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.7rem;
+  margin: 0 0 0.4rem;
+  line-height: 1.25;
+}
+
+.entry-meta {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin: 0 0 1rem;
+}
+
+.entry-desc {
+  max-width: 55ch;
+  margin: 0 0 1rem;
+}
+
+.entry-quote {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--ink-soft);
+  border-left: 2px solid var(--accent, var(--rose));
+  padding-left: 0.9rem;
+  margin: 0;
+  font-size: 0.98rem;
+}
+
+/* =========================================================
+     CLOSING
+     ========================================================= */
+.closing {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 6rem;
+  text-align: center;
+  border-top: 1px solid var(--rule);
+}
+
+.closing-note {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--ink);
+  margin-bottom: 1rem;
+}
+
+.closing-sign {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+/* =========================================================
+     RESPONSIVE
+     ========================================================= */
+@media (max-width: 720px) {
+  .site-header {
+    padding: 1.25rem 1.25rem;
+  }
+
+  .site-nav a {
+    margin-left: 1rem;
+  }
+
+  .entry,
+  .entry.reverse {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2.5rem 0;
+  }
+
+  .entry-visual {
+    flex: none;
+  }
+
+  .mood-art {
+    height: 180px;
+  }
+}
